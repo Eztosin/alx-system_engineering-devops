@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # A script that displays Best School 10 times using while loop
+# displays badluck in 4th iteration
+# displays goodluck in 8th iteration
 
 display="Best School"
 text1="bad luck"
