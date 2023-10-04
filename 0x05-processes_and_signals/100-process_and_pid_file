@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+#
+#
+#
+#
+#
+#
+
+echo $$ >> /var/run/myscript.pid
+
+trap 'echo "I hate the kill command"; rm -rf /va
