@@ -9,6 +9,22 @@ Using the project instructions, create a Ruby script that accepts
 one argument and pass it to a regular expression matching method.
 
 -Requirements:
+hbn
+hbtn
+hbttn
+hbtttn
+hbttttn
+hbtttttn
+hbttttttn
 Find the regular expression that will match the above cases
 Using the project instructions, create a Ruby script that accepts
 one argument and pass it to a regular expression matching method.
+
+-Requirements:
+htn
+hbtn
+hbbtn
+hbbbtn
+Find the regular expression that will match the above cases
+Using the project instructions, create a Ruby script that accepts
+one argument and pass it to a regular expression matching method
