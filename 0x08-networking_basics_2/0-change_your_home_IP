@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# a bash script that configures an ubuntu server with provided
+# requirements.
+
+cp /etc/hosts ~/hosts.new
+echo "127.0.0.2         local host" > ~/hosts.new
+echo "8.8.8.8           facebook.com" >> ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
