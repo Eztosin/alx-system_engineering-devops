@@ -11,3 +11,5 @@ The checker is running on Docker, so make sure to read this
 
 -Write a Bash script that displays all active IPv4 IPs on the
 machine it’s executed on.
+
+-Write a Bash script that listens on port 98 on localhost.
