@@ -2,7 +2,7 @@
 
 $package = 'flask'
 
-package {$package:
+package { $package:
     ensure   => '2.1.0',
     provider => 'pip3',
 }
