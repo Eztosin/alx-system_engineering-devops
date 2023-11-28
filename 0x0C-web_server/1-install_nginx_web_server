@@ -4,8 +4,8 @@
 apt-get update
 apt-get install -y nginx
 
-# Creating a simple HTML page with "Hello World!"
+ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 
 # Restart Nginx without using systemctl
-service nginx start
+killall -s HUP nginx || true
