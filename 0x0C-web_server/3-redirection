@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Configuring Nginx server so that /redirect_me redirects to
+# another page
+
+sudo apt-get update
+sudo apt-get install -y nginx
+
+echo "Hello World! This is ALX_Africa" | sudo tee /var/www/html/index.html
+
+redirect_config="server_name _;\n\trewrite ^\/redirect_me https:\/\/eztosin.hashnode.dev\/ permanent;"
+
+sudo sed -i "s/server_name _;/$redirect_config/" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
