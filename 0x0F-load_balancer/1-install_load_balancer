@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# configuring a load balancer on lb-01 server
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+sudo service haproxy start
+
+echo "frontend theproxy
+	bind *:80
+	mode http
+	default_backend my_backend_servers
+
+backend my_backend_servers
+	balance roundrobin
+	server 296195-web-01 54.90.26.239
+	server 296195-web-02 184.72.101.54" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+sudo service haproxy reload
