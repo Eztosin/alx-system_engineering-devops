@@ -9,4 +9,4 @@ fi
 
 sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 
-service nginx restart
+sudo service nginx restart
