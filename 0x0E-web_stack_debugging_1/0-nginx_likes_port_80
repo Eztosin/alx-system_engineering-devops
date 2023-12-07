@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if ! dpkg -s nginx > /dev/null 2>&1; then
+    sudo apt-get update
+    sudo apt-get -y install nginx
+    sudo ufw allow 'Nginx HTTP'
+fi
+
+sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+
+service nginx restart
