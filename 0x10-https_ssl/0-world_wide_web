@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+function domain_info() {
+    local domain=$1
+    local subdomain=$2
+
+    if [ -z "$subdomain" ]; then
+        subdomains=("www" "lb-01" "web-01" "web-02")
+    else
+        subdomains=("$subdomain")
+    fi
+
+    for sub in "${subdomains[@]}"; do
+        record_type=$(dig +short -t A "$sub.$domain" | awk '{ if (NR == 1) { print "A"; } else { print "CNAME"; } }')
+        destination=$(dig +short "$sub.$domain" | awk '{print $1}')
+
+        echo "The subdomain $sub is a $record_type record and points to $destination"
+    done
+}
+
+domain_info "$1" "$2"
