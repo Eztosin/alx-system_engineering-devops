@@ -32,19 +32,12 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-
 frontend theproxy
         bind *:80
-	mode http
-	http-request set-header X-Forwarded-Proto http
-	default_backend my_servers
-
-frontend https
         bind *:443 ssl crt /etc/haproxy/certs/www.easytoss.tech.pem
-	http-request set-header X-Forwarded-Proto https
-        default_backend my_servers
+        default_backend my_backend_servers
 
-backend my_servers
+backend my_backend_servers
         balance roundrobin
-        server 296195-web-01 54.90.26.239 check
-        server 296195-web-02 184.72.101.54 check
+        server 296195-web-01 54.90.26.239
+        server 296195-web-02 184.72.101.54
