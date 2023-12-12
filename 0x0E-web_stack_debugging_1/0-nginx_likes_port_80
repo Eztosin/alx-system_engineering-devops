@@ -7,6 +7,6 @@ if ! dpkg -s nginx > /dev/null 2>&1; then
     sudo ufw allow 'Nginx HTTP'
 fi
 
-sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 sudo service nginx restart
