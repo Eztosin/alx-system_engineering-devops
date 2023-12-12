@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+if ! dpkg -s nginx > /dev/null 2>&1
+then
+    apt-get update
+    apt-get -y install nginx
+    ufw allow 'Nginx HTTP'
+    rm /etc/nginx/sites-enabled/default
+    ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+    service nginx stop
+fi
