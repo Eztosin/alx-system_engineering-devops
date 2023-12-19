@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Fix container so that Nginx is running as the nginx user
+
+sed -i 's/^user .*;/user nginx;/g' /etc/nginx/nginx.conf
+
+# grant permissions to read and write
+chmod 644 /etc/nginx/nginx.conf
+
+sed -i 's/^listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
+
+# Restart Nginx service to apply changes
+sudo -u nginx service nginx restart
