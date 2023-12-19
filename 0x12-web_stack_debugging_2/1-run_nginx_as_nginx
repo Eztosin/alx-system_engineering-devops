@@ -21,5 +21,10 @@ echo "server {
     listen 8080;
 }" >> /etc/nginx/nginx.conf
 
+# grant permissions to read and write
+chmod 644 /etc/nginx/nginx.conf
+
+pkill apache2
+
 # Restart the Nginx service
 systemctl restart nginx
