@@ -1,14 +1,25 @@
-#!/usr/bin/env bash
-# Fix container so that Nginx is running as the nginx user
+# #!/usr/bin/env bash
+# # Fix container so that Nginx is running as the nginx user
 
-sed -i 's/^user .*;/user nginx;/g' /etc/nginx/nginx.conf
+# sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
 
-sed -i 's/^listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
+# sed -i 's/listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
 
-# grant permissions to read and write
-chmod 644 /etc/nginx/nginx.conf
+# # grant permissions to read and write
+# chmod 644 /etc/nginx/nginx.conf
 
-pkill apache2
+# pkill apache2
 
-# Restart Nginx service to apply changes
-sudo -u nginx service nginx restart
+# # Restart Nginx service to apply changes
+# sudo -u nginx service nginx restart
+
+# Set the user directive to nginx
+sed -i 's/user  .*/user nginx;/' /etc/nginx/nginx.conf
+
+# Add the server block to listen on port 8080
+echo "server {
+    listen 8080;
+}" >> /etc/nginx/nginx.conf
+
+# Restart the Nginx service
+systemctl restart nginx
