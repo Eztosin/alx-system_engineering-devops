@@ -1,4 +1,4 @@
-Learning Shell basics
+### Learning Shell basics
 
 - 0x00-shell_basics
 
@@ -22,4 +22,20 @@ Learning Shell basics
 
 - 0x09-web_infrastructure_design
 
+- 0x10-https_ssl
+
 - 0x0A. Configuration management
+
+- 0x0B. SSH
+
+- 0x0C-web_server
+
+- 0x0D. Web stack debugging #0
+
+- 0x0F-load_balancer
+
+- 0x0E-web_stack_debugging_1
+
+- 0x12-web_stack_debugging_2
+
+- 0x13-firewall
