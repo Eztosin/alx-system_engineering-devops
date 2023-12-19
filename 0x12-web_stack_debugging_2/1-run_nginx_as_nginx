@@ -1,16 +1,16 @@
-# #!/usr/bin/env bash
-# # Fix container so that Nginx is running as the nginx user
+#!/usr/bin/env bash
+# Fix container so that Nginx is running as the nginx user
 
 # sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
 
 # sed -i 's/listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
 
-# # grant permissions to read and write
+# grant permissions to read and write
 # chmod 644 /etc/nginx/nginx.conf
 
 # pkill apache2
 
-# # Restart Nginx service to apply changes
+# Restart Nginx service to apply changes
 # sudo -u nginx service nginx restart
 
 # Set the user directive to nginx
