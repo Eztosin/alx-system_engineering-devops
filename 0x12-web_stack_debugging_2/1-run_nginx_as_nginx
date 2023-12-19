@@ -3,10 +3,12 @@
 
 sed -i 's/^user .*;/user nginx;/g' /etc/nginx/nginx.conf
 
+sed -i 's/^listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
+
 # grant permissions to read and write
 chmod 644 /etc/nginx/nginx.conf
 
-sed -i 's/^listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
+pkill apache2
 
 # Restart Nginx service to apply changes
 sudo -u nginx service nginx restart
