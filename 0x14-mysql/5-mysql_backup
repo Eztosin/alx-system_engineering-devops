@@ -1,22 +1,5 @@
 #!/usr/bin/env bash
+# a Bash script that generates a MySQL dump and creates a compressed archive out of it
 
-# Set the backup directory
-backup_dir="/path/to/backup/directory"
-
-# Set the MySQL root password
-mysql_password="$1"
-
-# Set the date format for the backup file name
-date_format="$(date +%d-%m-%Y)"
-
-# Create the backup directory if it doesn't exist
-mkdir -p "$backup_dir"
-
-# Generate the MySQL dump
-mysqldump -u root -p"$mysql_password" --all-databases > "$backup_dir/backup.sql"
-
-# Compress the backup file
-tar -czvf "$backup_dir/$date_format.tar.gz" "$backup_dir/backup.sql"
-
-# Remove the original backup file
-rm "$backup_dir/backup.sql"
+mysqldump -uroot -p"$1" --all-databases > backup.sql
+tar -czf $(date +%d-%m-%Y).tar.gz backup.sql
