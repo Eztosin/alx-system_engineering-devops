@@ -8,7 +8,6 @@ import requests
 import sys
 
 
-
 def get_todo_data(employee_id):
     """uses a REST API, for a given employee ID,
     and returns information about his/her TODO list progress
