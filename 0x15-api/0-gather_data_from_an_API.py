@@ -1,12 +1,16 @@
 #!/usr/bin/python3
 """ a Python script that uses a REST API, for a given employee ID,
- and returns information about his/her TODO list progress"""
+ and returns information about his/her TODO list progress
+"""
 
-import requests
+import json
 import sys
-
+import requests
 
 def get_todo_data(employee_id):
+    """uses a REST API, for a given employee ID,
+    and returns information about his/her TODO list progress
+    """
     base_url = "https://jsonplaceholder.typicode.com"
     employee_url = "{}/users/{}".format(base_url, employee_id)
     todos_url = "{}/todos?userId={}".format(base_url, employee_id)
