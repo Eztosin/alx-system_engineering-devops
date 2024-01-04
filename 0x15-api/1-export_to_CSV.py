@@ -32,12 +32,17 @@ def get_todo_data(employee_id):
 
     csv_file = "{}.csv".format(employee_id)
     with open(csv_file, "w", newline="") as file:
-        csv_writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
+        csv_writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+        csv_writer.writerow(["USER_ID", "USERNAME",
+                             "TASK_COMPLETED_STATUS", "TASK_TITLE"])
 
         for task in todos_data:
-            csv_writer.writerow([user_Id, task.get("completed"),
-                                 task.get("title")])
-
+            csv_writer.writerow([
+                task["userId"],
+                employee_name,
+                str(task["completed"]),
+                task["title"]
+            ])
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
