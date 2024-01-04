@@ -32,7 +32,7 @@ def get_todo_data(employee_id):
 
     csv_file = "{}.csv".format(employee_id)
     with open(csv_file, "w", newline="") as file:
-        csv_writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+        csv_writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
         csv_writer.writerow(["USER_ID", "USERNAME",
                              "TASK_COMPLETED_STATUS", "TASK_TITLE"])
 
