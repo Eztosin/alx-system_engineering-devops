@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A Python script that uses a REST API, for a given employee ID,
-and returns information about his/her TODO list progress and exports data in CSV and JSON formats.
+and returns information about his/her TODO list progress and
+ exports data in CSV and JSON formats.
 """
 
 import csv
