@@ -30,7 +30,7 @@ def get_todo_data(employee_id):
 
     todos_data = todos_response.json()
 
-    csv_file = "{}".format(employee_id.csv)
+    csv_file = "{}.csv".format(employee_id)
     with open(csv_file, "w", newline="") as file:
         csv_writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
         csv_writer.writerow(["USER_ID", "USERNAME",
