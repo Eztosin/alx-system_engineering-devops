@@ -20,6 +20,11 @@
 #
 server {
         listen 80 default_server;
+        error_page 404 /404.html;
+        location = /404.html {
+                root /var/www/html;
+                internal;
+        }
         listen [::]:80 default_server;
 
         # SSL configuration
@@ -50,6 +55,8 @@ server {
         index index.html index.htm index.nginx-debian.html;
 
         server_name _;
+        add_header X-Served-By $hostname;
+        rewrite ^/redirect_me https://eztosin.hashnode.dev/ permanent;
 
         location / {
                 add_header X-Served-By $hostname;
@@ -100,3 +107,4 @@ server {
 #       location / {
 #               try_files $uri $uri/ =404;
 #       }
+#}
