@@ -1,5 +1,12 @@
 # Increase the ULIMIT of the default file
-sudo sed -i 's/15/4096/' /etc/default/nginx
+file { '/etc/default/nginx':
+  ensure  => file,
+  content => "#This file is managed by puppet\n\nULIMIT=\"-n 4096\"\n",
+  notify  => Exec['restart_nginx'],
+}
 
 # Restart Nginx
-sudo systemctl restart nginx
+exec { 'restart_nginx':
+  command     => '/etc/init.d/nginx restart',
+  refreshonly => true,
+}
